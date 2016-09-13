@@ -55,6 +55,7 @@
     <Compile Include="Repositories\StudentRepository.cs" />
     <Compile Include="Repositories\TeacherRepository.cs" />
     <Compile Include="RepositoryContext.cs" />
+    <Compile Include="StandardRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup />
