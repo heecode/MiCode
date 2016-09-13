@@ -63,7 +63,7 @@ namespace MiCode.Test.RepositoryTest
                     Standard = ableToGetMelur,
                     StudentName = studentName
                 };
-                var studentRepo = unitOfWork.Repository<StudentRepository>();
+                var studentRepo = unitOfWork.Repository<StudentRepository, IStudentRepository>();
                 studentRepo.Add(student);
                 unitOfWork.Complete();
                 var ableToGetHeemi = studentRepo.GetAll().Where(x => x.StudentName == studentName).FirstOrDefault();

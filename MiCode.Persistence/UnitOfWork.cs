@@ -52,13 +52,18 @@ namespace MiCode.Persistence
 
       
 
-        public TEntity Repository<TEntity>() where TEntity : IBaseRepo
+        public TIEntity Repository<TEntity, TIEntity>() where TEntity : IBaseRepo, TIEntity
         {
             var repo = typeof(TEntity).Name;
             //var repo = domain + "Repository";
             var type = Type.GetType("MiCode.Persistence.Repositories." + repo);
+
+            if (type == null)
+                return default(TEntity);
+            
             var obj = Activator.CreateInstance(type, _context);
-            return (TEntity)obj;
+            return (TIEntity)obj;
+           
             
         }
 

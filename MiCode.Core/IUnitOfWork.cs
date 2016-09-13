@@ -12,7 +12,7 @@ namespace MiCode.Core
     {
         IRepository<TEntity> GetRepository<TEntity>() where TEntity : class;
 
-         TEntity Repository<TEntity>() where TEntity : IBaseRepo;
+        TIEntity Repository<TEntity, TIEntity>() where TEntity : IBaseRepo, TIEntity;
  
         //IStudentRepository Repository<T>() where T : Student;
         // ITeacherRepository Repository<Student>();
