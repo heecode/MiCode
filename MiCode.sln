@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCode.Core", "MiCode.Core\MiCode.Core.csproj", "{A7AF8CC1-E86B-4E21-BE95-AF55CC213F69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCode.Test", "MiCode.Test\MiCode.Test.csproj", "{7FE195AD-B3CC-4638-9D83-A0C297B275F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCode.Service", "MiCode.Service\MiCode.Service.csproj", "{B48E9FE9-D981-4854-8723-C0F16C239A4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCode.Web.Api", "MiCode.Web.Api\MiCode.Web.Api.csproj", "{96C8986C-AD79-4351-B4B2-617A1C4D9644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCode.Web.Api.Tests", "MiCode.Web.Api.Tests\MiCode.Web.Api.Tests.csproj", "{4B94D286-0857-47D5-A542-EFD823C95D13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCode.Ui.Web", "MiCode.Ui.Web\MiCode.Ui.Web.csproj", "{630E969A-DCAE-4EC1-814D-6E6463F6843B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCode.Persistence", "MiCode.Persistence\MiCode.Persistence.csproj", "{08FBB1C0-A4A3-4FF9-B62C-E7BBBBC2EC32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7AF8CC1-E86B-4E21-BE95-AF55CC213F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7AF8CC1-E86B-4E21-BE95-AF55CC213F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7AF8CC1-E86B-4E21-BE95-AF55CC213F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7AF8CC1-E86B-4E21-BE95-AF55CC213F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE195AD-B3CC-4638-9D83-A0C297B275F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE195AD-B3CC-4638-9D83-A0C297B275F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE195AD-B3CC-4638-9D83-A0C297B275F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE195AD-B3CC-4638-9D83-A0C297B275F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B48E9FE9-D981-4854-8723-C0F16C239A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B48E9FE9-D981-4854-8723-C0F16C239A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B48E9FE9-D981-4854-8723-C0F16C239A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B48E9FE9-D981-4854-8723-C0F16C239A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96C8986C-AD79-4351-B4B2-617A1C4D9644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96C8986C-AD79-4351-B4B2-617A1C4D9644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C8986C-AD79-4351-B4B2-617A1C4D9644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96C8986C-AD79-4351-B4B2-617A1C4D9644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B94D286-0857-47D5-A542-EFD823C95D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B94D286-0857-47D5-A542-EFD823C95D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B94D286-0857-47D5-A542-EFD823C95D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B94D286-0857-47D5-A542-EFD823C95D13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{630E969A-DCAE-4EC1-814D-6E6463F6843B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630E969A-DCAE-4EC1-814D-6E6463F6843B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630E969A-DCAE-4EC1-814D-6E6463F6843B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630E969A-DCAE-4EC1-814D-6E6463F6843B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FBB1C0-A4A3-4FF9-B62C-E7BBBBC2EC32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FBB1C0-A4A3-4FF9-B62C-E7BBBBC2EC32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FBB1C0-A4A3-4FF9-B62C-E7BBBBC2EC32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FBB1C0-A4A3-4FF9-B62C-E7BBBBC2EC32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
