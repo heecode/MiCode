@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MiCode.Persistence
+namespace MiCode.Persistence.Repositories
 {
-    class StandardRepository
+   public class StandardRepository
     {
     }
 }
