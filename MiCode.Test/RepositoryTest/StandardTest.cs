@@ -37,17 +37,19 @@ namespace MiCode.Test.RepositoryTest
         public void AbleToSaveStandardUsingUnity()
         {
 
-            var unitOfWork = _uc.Resolve<IUnitOfWork>();
-            var timeStamp = DateTime.Now.Ticks.ToString();
+            
+            using (var unitOfWork = _uc.Resolve<IUnitOfWork>())
+            {
+                var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
-                var standard = new Standard { StandardName = standardName };
+                var standard = new Standard {StandardName = standardName};
                 var standardRepo = unitOfWork.GetRepository<Standard>();
                 standardRepo.Add(standard);
-                //unitOfWork.Authors.Remove(author);
-                unitOfWork.Complete();
+               unitOfWork.Complete();
                 var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetMelur);
-            unitOfWork.Dispose();
+            }
+          
 
 
 
