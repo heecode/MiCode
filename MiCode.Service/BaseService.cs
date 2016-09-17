@@ -26,7 +26,7 @@ namespace MiCode.Service
             return _repository.GetAll();
         }
 
-        public void Save(TEntity entity)
+        public virtual void Save(TEntity entity)
         {
            if (entity.Id == 0)
                 _repository.Add(entity);
@@ -37,7 +37,7 @@ namespace MiCode.Service
            
         }
 
-        public void Save(IEnumerable<TEntity> entities)
+        public virtual void Save(IEnumerable<TEntity> entities)
         {
             _repository.AddRange(entities);
             _uow.Complete();
@@ -53,14 +53,14 @@ namespace MiCode.Service
             return _repository.GetAll().Where(x => ids.Contains(x.Id));
         }
 
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
            //var ent = _repository.Get()
            _repository.Remove(entity);
             _uow.Complete();
         }
 
-        public void Delete(IEnumerable<TEntity> entities)
+        public virtual void Delete(IEnumerable<TEntity> entities)
         {
            // entities.ToList().Select(x => Delete(x));
             var ids = entities.Select(x => x.Id);
@@ -73,14 +73,14 @@ namespace MiCode.Service
            
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             var ent = _repository.Get(id);
             Delete(ent);
             
         }
 
-        public void Delete(IEnumerable<int> ids)
+        public virtual void Delete(IEnumerable<int> ids)
         {
             var ents = _repository.GetAll().Where(x => ids.Contains(x.Id));
             Delete(ents);
