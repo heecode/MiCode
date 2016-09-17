@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Practices.Unity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MiCode.Core;
 using MiCode.Core.Domain;
@@ -11,11 +12,13 @@ namespace MiCode.Test.ServiceTest
     {
         IUnitOfWork _uow;
         StudentService _studentService;
+        private readonly UnityContainer _uc = MockDependencyInjector.Instance;
 
         [TestInitialize]
         public void SetUp()
         {
-            _uow = new MockUnitOfWork<MockDataContext>();
+            //_uow = new MockUnitOfWork<MockDataContext>();
+            _uow = _uc.Resolve<IUnitOfWork>();
             _studentService = new StudentService(_uow);
         }
 
