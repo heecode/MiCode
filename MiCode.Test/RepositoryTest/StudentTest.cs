@@ -20,10 +20,11 @@ namespace MiCode.Test.RepositoryTest
                 var standardName = "Melur" + timeStamp;
                 var studentName = "Heemi" + timeStamp;
                 var standard = new Standard { StandardName = standardName };
-                unitOfWork.Standards.Add(standard);
+                var standardRepo = unitOfWork.GetRepository<Standard>();
+                standardRepo.Add(standard);
                 //unitOfWork.Authors.Remove(author);
                 unitOfWork.Complete();
-                var ableToGetMelur = unitOfWork.Standards.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetMelur);
 
                 var student = new Student
@@ -51,10 +52,11 @@ namespace MiCode.Test.RepositoryTest
                 var standardName = "Melur" + timeStamp;
                 var studentName = "Heemi" + timeStamp;
                 var standard = new Standard { StandardName = standardName };
-                unitOfWork.Standards.Add(standard);
+                var standardRepo = unitOfWork.GetRepository<Standard>();
+                standardRepo.Add(standard);
                 //unitOfWork.Authors.Remove(author);
                 unitOfWork.Complete();
-                var ableToGetMelur = unitOfWork.Standards.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetMelur);
 
                 var student = new Student
@@ -70,11 +72,11 @@ namespace MiCode.Test.RepositoryTest
                 var ableToGetHeemi = studentRepo.GetAll().Where(x => x.StudentName == studentName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetHeemi);
                 studentRepo.Remove(ableToGetHeemi);
-                
-                unitOfWork.Standards.Remove(ableToGetMelur);
+
+                standardRepo.Remove(ableToGetMelur);
                 unitOfWork.Complete();
                 ableToGetHeemi = studentRepo.GetAll().Where(x => x.StudentName == studentName).FirstOrDefault();
-                ableToGetMelur = unitOfWork.Standards.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
                 Assert.IsNull(ableToGetHeemi);
                 Assert.IsNull(ableToGetMelur);
 

@@ -17,18 +17,10 @@ namespace MiCode.Persistence
         private readonly Dictionary<Type, object> _repositories;
         private bool _disposed;
      
-        public IRepository<Teacher> Teachers { get; }
-        public IRepository<Standard> Standards { get; }
-
-
         public UnitOfWork()
         {
-           // _context = context;
             _context = new TContext();
             _repositories = new Dictionary<Type, object>();
-          
-            Teachers = new Repository<Teacher>(_context);
-            Standards = new Repository<Standard>(_context);
             _disposed = false;
         }
 
@@ -61,13 +53,7 @@ namespace MiCode.Persistence
             
         }
 
-
-
-
-        //public void Dispose()
-        //{
-        //    _context.Dispose();
-        //}
+        
         public void Dispose()
         {
             Dispose(true);

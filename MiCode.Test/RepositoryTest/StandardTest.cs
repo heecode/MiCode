@@ -20,10 +20,11 @@ namespace MiCode.Test.RepositoryTest
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
                 var standard = new Standard {StandardName = standardName };
-                unitOfWork.Standards.Add(standard);
+                var standardRepo = unitOfWork.GetRepository<Standard>();
+                standardRepo.Add(standard);
                 //unitOfWork.Authors.Remove(author);
                 unitOfWork.Complete();
-                var ableToGetMelur = unitOfWork.Standards.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetMelur);
             }
 
@@ -42,18 +43,18 @@ namespace MiCode.Test.RepositoryTest
                 standardRepo.Add(standard);
                 //unitOfWork.Authors.Remove(author);
                 unitOfWork.Complete();
-                var ableToGetMelur = unitOfWork.Standards.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
                 var newStandardName = "Melati" + timeStamp;
                 Assert.IsNotNull(ableToGetMelur);
                 var id = ableToGetMelur.Id;
                 ableToGetMelur.StandardName = newStandardName;
                 standardRepo.Update(ableToGetMelur);
                 unitOfWork.Complete();
-                ableToGetMelur = unitOfWork.Standards.Get(id);
+                ableToGetMelur = standardRepo.Get(id);
                 Assert.AreEqual(ableToGetMelur.StandardName,newStandardName);
                 standardRepo.Remove(ableToGetMelur);
                 unitOfWork.Complete();
-                ableToGetMelur = unitOfWork.Standards.Get(id);
+                ableToGetMelur = standardRepo.Get(id);
                 Assert.IsNull(ableToGetMelur);
             }
 
