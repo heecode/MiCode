@@ -40,13 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="StudentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MiCode.Core\MiCode.Core.csproj">
       <Project>{a7af8cc1-e86b-4e21-be95-af55cc213f69}</Project>
       <Name>MiCode.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiCode.Persistence\MiCode.Persistence.csproj">
+      <Project>{08fbb1c0-a4a3-4ff9-b62c-e7bbbbc2ec32}</Project>
+      <Name>MiCode.Persistence</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

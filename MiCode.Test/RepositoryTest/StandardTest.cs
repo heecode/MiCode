@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MiCode.Core;
@@ -14,7 +15,7 @@ namespace MiCode.Test.RepositoryTest
         [TestMethod]
         public void AbleToSaveStandard()
         {
-            using (var unitOfWork = new UnitOfWork(new RepositoryContext()))
+            using (var unitOfWork = new UnitOfWork<RepositoryContext>())
             {
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
@@ -31,7 +32,7 @@ namespace MiCode.Test.RepositoryTest
         [TestMethod]
         public void AbleToSaveStandardUsingGenericIoW()
         {
-            using (var unitOfWork = new UnitOfWork(new RepositoryContext()))
+            using (var unitOfWork = new UnitOfWork<RepositoryContext>())
             {
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
@@ -42,7 +43,18 @@ namespace MiCode.Test.RepositoryTest
                 //unitOfWork.Authors.Remove(author);
                 unitOfWork.Complete();
                 var ableToGetMelur = unitOfWork.Standards.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var newStandardName = "Melati" + timeStamp;
                 Assert.IsNotNull(ableToGetMelur);
+                var id = ableToGetMelur.Id;
+                ableToGetMelur.StandardName = newStandardName;
+                standardRepo.Update(ableToGetMelur);
+                unitOfWork.Complete();
+                ableToGetMelur = unitOfWork.Standards.Get(id);
+                Assert.AreEqual(ableToGetMelur.StandardName,newStandardName);
+                standardRepo.Remove(ableToGetMelur);
+                unitOfWork.Complete();
+                ableToGetMelur = unitOfWork.Standards.Get(id);
+                Assert.IsNull(ableToGetMelur);
             }
 
          //   IUnitOfWork _uow;

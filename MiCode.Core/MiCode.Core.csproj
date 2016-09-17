@@ -49,15 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\BaseEntity.cs" />
     <Compile Include="Domain\Standard.cs" />
     <Compile Include="Domain\Student.cs" />
     <Compile Include="Domain\Teacher.cs" />
+    <Compile Include="IService.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IBaseRepo.cs" />
     <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\IStudentRepository.cs" />
-    <Compile Include="Repository\ITeacherRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

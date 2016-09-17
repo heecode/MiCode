@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MiCode.Core.Domain
 {
-    public class Standard
+    public class Standard:BaseEntity
     {
         public Standard()
         {
 
         }
-        public int StandardId { get; set; }
+        //public int StandardId { get; set; }
         public string StandardName { get; set; }
 
 

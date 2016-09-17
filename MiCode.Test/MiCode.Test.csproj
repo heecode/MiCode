@@ -61,8 +61,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MockDataContext.cs" />
+    <Compile Include="MockRepository.cs" />
+    <Compile Include="MockUnitOfWork.cs" />
     <Compile Include="RepositoryTest\StandardTest.cs" />
     <Compile Include="RepositoryTest\StudentTest.cs" />
+    <Compile Include="ServiceTest\StudentServiceTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

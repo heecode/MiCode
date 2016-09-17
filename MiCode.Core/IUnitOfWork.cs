@@ -10,16 +10,8 @@ namespace MiCode.Core
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRepository<TEntity> GetRepository<TEntity>() where TEntity : class;
-
+        IRepository<TEntity> GetRepository<TEntity>() where TEntity : BaseEntity;
         TIEntity Repository<TEntity, TIEntity>() where TEntity : IBaseRepo, TIEntity;
- 
-        //IStudentRepository Repository<T>() where T : Student;
-        // ITeacherRepository Repository<Student>();
-        //IStudentRepository Repository();
-         IStudentRepository Students { get; }
-        IRepository<Teacher> Teachers { get; }
-        IRepository<Standard> Standards { get; }
         int Complete();
     }
 }

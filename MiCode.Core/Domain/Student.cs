@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace MiCode.Core.Domain
 {
-    public class Student
+    public class Student : BaseEntity
     {
         public Student()
         {
 
         }
-        public int StudentID { get; set; }
+        //public int StudentID { get; set; }
         public string StudentName { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public byte[] Photo { get; set; }
         public decimal Height { get; set; }
         public float Weight { get; set; }
-        public int StandardId { get; set; }
+       // public int StandardId { get; set; }
 
         public Teacher Teacher { get; set; }
 

@@ -4,23 +4,24 @@ using System.Linq;
 using System.Linq.Expressions;
 
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using MiCode.Core.Domain;
 using MiCode.Core.Repository;
 
 namespace MiCode.Persistence.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
-        protected readonly RepositoryContext Context;
+        protected readonly DbContext Context;
 
-        public Repository(RepositoryContext context)
+        public Repository(DbContext context)
         {
             Context = context;
         }
 
         public TEntity Get(int id)
         {
-            // Here we are working with a DbContext, not PlutoContext. So we don't have DbSets 
-            // such as Courses or Authors, and we need to use the generic Set() method to access them.
+            
             return Context.Set<TEntity>().Find(id);
         }
 
@@ -68,6 +69,15 @@ namespace MiCode.Persistence.Repositories
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
             Context.Set<TEntity>().RemoveRange(entities);
+        }
+
+        public void Update(TEntity entity)
+        {
+            var entry = Context.Entry(entity);
+            var dbSet = Context.Set<TEntity>();
+            dbSet.Attach(entity);
+            entry.State = EntityState.Modified;
+           
         }
     }
 }

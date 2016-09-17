@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,29 +11,28 @@ using MiCode.Persistence.Repositories;
 
 namespace MiCode.Persistence
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork<TContext> : IUnitOfWork where TContext: DbContext, new()
     {
-        private readonly RepositoryContext _context;
+        private readonly DbContext _context;
         private readonly Dictionary<Type, object> _repositories;
         private bool _disposed;
-
-       
-
-        public IStudentRepository Students { get; }
+     
         public IRepository<Teacher> Teachers { get; }
         public IRepository<Standard> Standards { get; }
 
-        public UnitOfWork(RepositoryContext context)
+
+        public UnitOfWork()
         {
-            _context = context;
+           // _context = context;
+            _context = new TContext();
             _repositories = new Dictionary<Type, object>();
-            Students = new StudentRepository(_context);
+          
             Teachers = new Repository<Teacher>(_context);
             Standards = new Repository<Standard>(_context);
             _disposed = false;
         }
 
-        public IRepository<TEntity> GetRepository<TEntity>() where TEntity : class
+        public IRepository<TEntity> GetRepository<TEntity>() where TEntity : BaseEntity
         {
             // Checks if the Dictionary Key contains the Model class
             if (_repositories.Keys.Contains(typeof(TEntity)))
@@ -94,17 +94,5 @@ namespace MiCode.Persistence
         }
     }
 
-    public static class  UnitOfWorkRepository
-    {
-        public static IStudentRepository ToStudentRepository(this object obj)
-        {
-            return (IStudentRepository) obj;
-        }
-
-        public static ITeacherRepository ToTeacherRepository(this object obj)
-        {
-            return (ITeacherRepository)obj;
-        }
-
-    }
+    
 }

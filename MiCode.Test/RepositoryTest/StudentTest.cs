@@ -14,7 +14,7 @@ namespace MiCode.Test.RepositoryTest
         [TestMethod]
         public void AbleToSaveStudent()
         {
-            using (var unitOfWork = new UnitOfWork(new RepositoryContext()))
+            using (var unitOfWork = new UnitOfWork<RepositoryContext>())
             {
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
@@ -33,9 +33,10 @@ namespace MiCode.Test.RepositoryTest
                     Standard = ableToGetMelur,
                     StudentName = studentName
                 };
-                unitOfWork.Students.Add(student);
+                var studentRepo = unitOfWork.GetRepository<Student>();
+                studentRepo.Add(student);
                 unitOfWork.Complete();
-                var ableToGetHeemi = unitOfWork.Students.GetAll().Where(x => x.StudentName == studentName).FirstOrDefault();
+                var ableToGetHeemi = studentRepo.GetAll().Where(x => x.StudentName == studentName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetHeemi);
 
             }
@@ -44,7 +45,7 @@ namespace MiCode.Test.RepositoryTest
         [TestMethod]
         public void AbleToGetGeneralRepoStudent()
         {
-            using (var unitOfWork = new UnitOfWork(new RepositoryContext()))
+            using (var unitOfWork = new UnitOfWork<RepositoryContext>())
             {
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
@@ -63,7 +64,7 @@ namespace MiCode.Test.RepositoryTest
                     Standard = ableToGetMelur,
                     StudentName = studentName
                 };
-                var studentRepo = unitOfWork.Repository<StudentRepository, IStudentRepository>();
+                var studentRepo = unitOfWork.GetRepository<Student>();
                 studentRepo.Add(student);
                 unitOfWork.Complete();
                 var ableToGetHeemi = studentRepo.GetAll().Where(x => x.StudentName == studentName).FirstOrDefault();
