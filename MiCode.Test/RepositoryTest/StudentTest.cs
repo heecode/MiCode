@@ -19,12 +19,12 @@ namespace MiCode.Test.RepositoryTest
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
                 var studentName = "Heemi" + timeStamp;
-                var standard = new Standard { StandardName = standardName };
+                var standard = new Standard { Name = standardName };
                 var standardRepo = unitOfWork.GetRepository<Standard>();
                 standardRepo.Add(standard);
                 //unitOfWork.Authors.Remove(author);
                 unitOfWork.Complete();
-                var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var ableToGetMelur = standardRepo.GetAll().Where(x => x.Name == standardName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetMelur);
 
                 var student = new Student
@@ -32,12 +32,12 @@ namespace MiCode.Test.RepositoryTest
                     DateOfBirth = DateTime.Now,
                     Height = 123,
                     Standard = ableToGetMelur,
-                    StudentName = studentName
+                    Name = studentName
                 };
                 var studentRepo = unitOfWork.GetRepository<Student>();
                 studentRepo.Add(student);
                 unitOfWork.Complete();
-                var ableToGetHeemi = studentRepo.GetAll().Where(x => x.StudentName == studentName).FirstOrDefault();
+                var ableToGetHeemi = studentRepo.GetAll().Where(x => x.Name == studentName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetHeemi);
 
             }
@@ -51,12 +51,12 @@ namespace MiCode.Test.RepositoryTest
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
                 var studentName = "Heemi" + timeStamp;
-                var standard = new Standard { StandardName = standardName };
+                var standard = new Standard { Name = standardName };
                 var standardRepo = unitOfWork.GetRepository<Standard>();
                 standardRepo.Add(standard);
                 //unitOfWork.Authors.Remove(author);
                 unitOfWork.Complete();
-                var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var ableToGetMelur = standardRepo.GetAll().Where(x => x.Name == standardName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetMelur);
 
                 var student = new Student
@@ -64,19 +64,19 @@ namespace MiCode.Test.RepositoryTest
                     DateOfBirth = DateTime.Now,
                     Height = 123,
                     Standard = ableToGetMelur,
-                    StudentName = studentName
+                    Name = studentName
                 };
                 var studentRepo = unitOfWork.GetRepository<Student>();
                 studentRepo.Add(student);
                 unitOfWork.Complete();
-                var ableToGetHeemi = studentRepo.GetAll().Where(x => x.StudentName == studentName).FirstOrDefault();
+                var ableToGetHeemi = studentRepo.GetAll().Where(x => x.Name == studentName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetHeemi);
                 studentRepo.Remove(ableToGetHeemi);
 
                 standardRepo.Remove(ableToGetMelur);
                 unitOfWork.Complete();
-                ableToGetHeemi = studentRepo.GetAll().Where(x => x.StudentName == studentName).FirstOrDefault();
-                ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                ableToGetHeemi = studentRepo.GetAll().Where(x => x.Name == studentName).FirstOrDefault();
+                ableToGetMelur = standardRepo.GetAll().Where(x => x.Name == standardName).FirstOrDefault();
                 Assert.IsNull(ableToGetHeemi);
                 Assert.IsNull(ableToGetMelur);
 

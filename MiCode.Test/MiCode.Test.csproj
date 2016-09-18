@@ -83,7 +83,9 @@
     <Compile Include="MockUnitOfWork.cs" />
     <Compile Include="RepositoryTest\StandardTest.cs" />
     <Compile Include="RepositoryTest\StudentTest.cs" />
+    <Compile Include="RepositoryTest\SchoolTest.cs" />
     <Compile Include="ServiceTest\StudentServiceTest.cs" />
+    <Compile Include="ServiceTest\SchoolServiceTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

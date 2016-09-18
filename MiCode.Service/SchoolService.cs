@@ -8,11 +8,10 @@ using MiCode.Core.Domain;
 
 namespace MiCode.Service
 {
-    public class StudentService:BaseService<Student>
+  public  class SchoolService : BaseService<School>
     {
-        public StudentService(IUnitOfWork uow) : base(uow)
+        public SchoolService(IUnitOfWork uow) : base(uow)
         {
         }
-
     }
 }

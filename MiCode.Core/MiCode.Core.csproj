@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\BaseEntity.cs" />
+    <Compile Include="Domain\School.cs" />
     <Compile Include="Domain\Standard.cs" />
     <Compile Include="Domain\Student.cs" />
     <Compile Include="Domain\Teacher.cs" />

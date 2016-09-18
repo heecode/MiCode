@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="SchoolService.cs" />
     <Compile Include="StudentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

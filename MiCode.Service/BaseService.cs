@@ -48,6 +48,11 @@ namespace MiCode.Service
             return _repository.Get(id);
         }
 
+        public TEntity GetByName(string name)
+        {
+            return GetAll().SingleOrDefault(x => x.Name == name);
+        }
+
         public IEnumerable<TEntity> GetByIds(IEnumerable<int> ids)
         {
             return _repository.GetAll().Where(x => ids.Contains(x.Id));

@@ -26,17 +26,27 @@ namespace MiCode.Test.ServiceTest
         public void GetStudentJohnDoe()
         {
             var student = _studentService.GetById(1);
-            Assert.AreEqual(student.StudentName, "John Doe");
+            Assert.AreEqual(student.Name, "John Doe");
         }
 
         [TestMethod]
         public void AbleToAddStudentNoraDanish()
         {
             var name = "Nora Danish";
-            var student = new Student {Id = 0, StudentName = name};
+            var student = new Student {Id = 0, Name = name};
             _studentService.Save(student);
             var studentNora = _studentService.GetByName(name);
-            Assert.AreEqual(studentNora.StudentName, name);
+            Assert.AreEqual(studentNora.Name, name);
+        }
+
+        [TestMethod]
+        public void AbleToAddStudentAidaJebat()
+        {
+            var name = "AidaJebat";
+            var student = new Student { Name = name };
+            _studentService.Save(student);
+            var studentNora = _studentService.GetByName(name);
+            Assert.AreEqual(studentNora.Name, name);
         }
     }
 }

@@ -18,21 +18,48 @@ namespace MiCode.Test
                     new Student
                     {
                         Id = 1,
-                        StudentName = "John Doe",
+                        Name = "John Doe",
                     },
                     new Student
                     {
                         Id = 2,
-                        StudentName = "Victor Sagev",
+                        Name = "Victor Sagev",
                     },
                     new Student
                     {
                         Id = 3,
-                        StudentName = "Wayne Johnson",
+                        Name = "Wayne Johnson",
                     }
                 };
             }
         }
+
+        public List<School> School
+        {
+            get
+            {
+                return new List<School>
+                {
+                    new School
+                    {
+                        Id = 1,
+                        Name = "SMK1",
+                    },
+                    new School
+                    {
+                        Id = 2,
+                        Name = "SMK2",
+                    },
+                    new School
+                    {
+                        Id = 3,
+                        Name = "SMK3",
+                    }
+                };
+            }
+        }
+
+
     }
 }
 

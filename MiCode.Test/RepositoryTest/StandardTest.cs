@@ -22,12 +22,12 @@ namespace MiCode.Test.RepositoryTest
             {
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
-                var standard = new Standard {StandardName = standardName };
+                var standard = new Standard {Name = standardName };
                 var standardRepo = unitOfWork.GetRepository<Standard>();
                 standardRepo.Add(standard);
                 //unitOfWork.Authors.Remove(author);
                 unitOfWork.Complete();
-                var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var ableToGetMelur = standardRepo.GetAll().Where(x => x.Name == standardName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetMelur);
             }
 
@@ -42,11 +42,11 @@ namespace MiCode.Test.RepositoryTest
             {
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
-                var standard = new Standard {StandardName = standardName};
+                var standard = new Standard {Name = standardName};
                 var standardRepo = unitOfWork.GetRepository<Standard>();
                 standardRepo.Add(standard);
                unitOfWork.Complete();
-                var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var ableToGetMelur = standardRepo.GetAll().Where(x => x.Name == standardName).FirstOrDefault();
                 Assert.IsNotNull(ableToGetMelur);
             }
           
@@ -62,21 +62,21 @@ namespace MiCode.Test.RepositoryTest
             {
                 var timeStamp = DateTime.Now.Ticks.ToString();
                 var standardName = "Melur" + timeStamp;
-                var standard = new Standard { StandardName = standardName };
+                var standard = new Standard { Name = standardName };
                 var standardRepo = unitOfWork.GetRepository<Standard>();
                // standardRepo.
                 standardRepo.Add(standard);
                 //unitOfWork.Authors.Remove(author);
                 unitOfWork.Complete();
-                var ableToGetMelur = standardRepo.GetAll().Where(x => x.StandardName == standardName).FirstOrDefault();
+                var ableToGetMelur = standardRepo.GetAll().Where(x => x.Name == standardName).FirstOrDefault();
                 var newStandardName = "Melati" + timeStamp;
                 Assert.IsNotNull(ableToGetMelur);
                 var id = ableToGetMelur.Id;
-                ableToGetMelur.StandardName = newStandardName;
+                ableToGetMelur.Name = newStandardName;
                 standardRepo.Update(ableToGetMelur);
                 unitOfWork.Complete();
                 ableToGetMelur = standardRepo.Get(id);
-                Assert.AreEqual(ableToGetMelur.StandardName,newStandardName);
+                Assert.AreEqual(ableToGetMelur.Name,newStandardName);
                 standardRepo.Remove(ableToGetMelur);
                 unitOfWork.Complete();
                 ableToGetMelur = standardRepo.Get(id);

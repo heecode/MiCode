@@ -12,7 +12,9 @@ namespace MiCode.Core
       void Save(TEntity entity);
       void Save(IEnumerable<TEntity> entities);
       TEntity GetById(int id);
-      IEnumerable<TEntity> GetByIds(IEnumerable<int> ids);
+
+        TEntity GetByName(string name);
+        IEnumerable<TEntity> GetByIds(IEnumerable<int> ids);
       void Delete(TEntity entity);
       void Delete(IEnumerable<TEntity> entities);
       void Delete(int id);

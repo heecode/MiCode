@@ -13,11 +13,14 @@ namespace MiCode.Persistence
         {
             public RepositoryContext() : base("name=DBConnectionString")
             {
-
+                Database.SetInitializer(
+                    new MigrateDatabaseToLatestVersion<RepositoryContext, MiCode.Persistence.Migrations.Configuration>(
+                        "DBConnectionString"));
             }
 
             public DbSet<Student> Students { get; set; }
             public DbSet<Standard> Standards { get; set; }
+
         }
     
 }
