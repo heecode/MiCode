@@ -19,6 +19,7 @@ namespace MiCode.Test
                     {
                         Id = 1,
                         Name = "John Doe",
+                        
                     },
                     new Student
                     {
