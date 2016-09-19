@@ -14,8 +14,9 @@ namespace MiCode.Web.Api.Controllers
     public class BaseApiController : ApiController
     {
         //private readonly UnityContainer container = MiCodeUnity.Instance;
-        public static ModelFactory ModelFactory => new ModelFactory();
-          //  _instance ?? (_instance = new ModelFactory());
+        private ModelFactory _modelFactory;
+        protected ModelFactory ModelFactory =>
+           _modelFactory ?? (_modelFactory = new ModelFactory());
         protected  IUnitOfWork UnitOfWork;
     }
 }

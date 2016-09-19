@@ -7,6 +7,7 @@ using System.Web.Http;
 using Microsoft.Practices.Unity;
 using MiCode.DependencyInjector;
 using Newtonsoft.Json.Serialization;
+using Unity.WebApi;
 
 namespace MiCode.Web.Api
 {
@@ -29,9 +30,10 @@ namespace MiCode.Web.Api
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+           
+            config.DependencyResolver = new UnityDependencyResolver(container);
 
-           // config.DependencyResolver = container;
-
+            
         }
     }
 }

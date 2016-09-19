@@ -59,8 +59,21 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -88,6 +101,7 @@
     <Compile Include="ServiceTest\SchoolServiceTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebAPITest\SchoolControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MiCode.Core\MiCode.Core.csproj">
@@ -105,6 +119,10 @@
     <ProjectReference Include="..\MiCode.Service\MiCode.Service.csproj">
       <Project>{b48e9fe9-d981-4854-8723-c0f16c239a4d}</Project>
       <Name>MiCode.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiCode.Web.Api\MiCode.Web.Api.csproj">
+      <Project>{96c8986c-ad79-4351-b4b2-617a1c4d9644}</Project>
+      <Name>MiCode.Web.Api</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

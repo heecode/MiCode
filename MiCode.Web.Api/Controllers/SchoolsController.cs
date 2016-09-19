@@ -13,7 +13,7 @@ namespace MiCode.Web.Api.Controllers
 {
     public class SchoolsController : BaseApiController
     {
-        protected readonly SchoolService _schoolService;
+        private readonly SchoolService _schoolService;
         public SchoolsController(IUnitOfWork unitOfWork)
         {
             UnitOfWork = unitOfWork;
@@ -40,7 +40,7 @@ namespace MiCode.Web.Api.Controllers
         }
 
         // PUT: api/Students/5
-        public void Put(int id, SchoolModel schoolModel)
+        public void Put(SchoolModel schoolModel)
         {
             var school = ModelFactory.Create(schoolModel);
             _schoolService.Save(school);

@@ -62,7 +62,9 @@ namespace MiCode.Test
         public void Update(TEntity entity)
         {
             //Context.
-            Context.Add(entity);
+            //Context.Add(entity);
+            var obj = Context.Single(x => x.Id == entity.Id);
+            obj = entity;
         }
 
         public void Remove(TEntity entity)
