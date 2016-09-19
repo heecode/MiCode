@@ -13,7 +13,7 @@ namespace MiCode.Web.Api
         public void Configuration(IAppBuilder app)
         {
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
-            HttpConfiguration config = new HttpConfiguration();
+            var config = new HttpConfiguration();
 
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             WebApiConfig.Register(config);
